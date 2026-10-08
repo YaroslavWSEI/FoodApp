@@ -1,3 +1,10 @@
+<h2 >Restaurant List</h2>
+<input type="text" placeholder="Search..." [value]="searchTerm()" (input)="onSearch($event)" />
 <section class="list">
-    <app-rest-card/>
+@for(restaurant of restaraunts(); track restaurant.id){
+  <app-rest-card [restaurant]="restaurant"></app-rest-card>
+}
+@empty {
+    <div class="no-restaurants">Brak dostępnych restauracji</div>
+}
 </section>

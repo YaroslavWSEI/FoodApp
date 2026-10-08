@@ -1,30 +1,15 @@
-<table class="table table-dark table-striped-columns">
-    <thead>
-        <tr class="headers">
-            <th>Name</th>
-            <th>Description</th>
-            <th>Cuisine</th>
-            <th>Image</th>
-            <th>Rating</th>
-            <th>Delivery time</th>
-            <th>Delivery fee</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (restaraunt of restaraunts(); track restaraunt.name) {
-        <tr>
-            <td>{{restaraunt.name}}</td>
-            <td>{{restaraunt.description}}</td>
-            <td>{{restaraunt.cuisine}}</td>
-            <td><img src="{{restaraunt.image}}" alt="" width="150px"></td>
-            <td>{{restaraunt.rating}}</td>
-            <td>{{restaraunt.deliveryTime}}</td>
-            <td>{{restaraunt.deliveryFee}}</td>
-            <td>@if (restaraunt.openStatus === true) {Otwarte} @else {Zamknięte}</td>
-        </tr>
-        }
-    </tbody>
-</table>
+<section class="card">
+<div class = "name">{{ restaurant().name }}</div>
+<div class = "description">{{ restaurant().description }}</div>
+<div class = "rating">Rating: {{ restaurant().rating }}</div>
+<div class = "cuisine">Cuisine: {{ restaurant().cuisine }}</div>
+<div class = "delivery-time">Delivery Time: {{ restaurant().deliveryTimeMin }} - {{ restaurant().deliveryTimeMax }}</div>
+<div class = "delivery-fee">Delivery Fee: {{ restaurant().deliveryFee }}</div>
+<div class = "status">
+  <span [class]="'status-' + (restaurant().isActive ? 'open' : 'closed')">
+    {{ restaurant().isActive ? 'Otwarte' : 'Zamknięte' }}
+  </span>
+</div>
+<button class="order-button" [disabled]="!restaurant().isActive">Order Now</button>
 
-<!-- uzylem AI tylko dla zrozumienia skladni petli for w HTMLu -->
+</section>
