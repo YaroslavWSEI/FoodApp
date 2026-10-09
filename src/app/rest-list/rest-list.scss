@@ -1,0 +1,67 @@
+:host { display: block; max-width: 1200px; margin: 0 auto; padding: 32px 24px 48px; color: #252525; font-family: Arial, Helvetica, sans-serif; }
+
+h2 { margin: 0 0 24px; font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+
+/* Filters */
+
+.filters { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; padding: 20px; background: #ffffff; border: 1px solid #eeeeee; border-radius: 16px; box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04); }
+
+/* Search */
+
+.filters input[type='text'] { flex: 1 1 220px; min-width: 180px; height: 44px; padding: 0 14px; color: #252525; background: #fafafa; border: 1px solid #dedede; border-radius: 10px; outline: none; font-size: 14px; transition: border-color 0.2s, box-shadow 0.2s, background 0.2s; }
+
+.filters input[type='text']::placeholder { color: #999999; }
+
+.filters input[type='text']:focus { background: #ffffff; border-color: #f07836; box-shadow: 0 0 0 3px rgba(240, 120, 54, 0.12); }
+
+/* Dropdowns */
+
+.filters select { flex: 0 1 180px; min-width: 150px; height: 44px; padding: 0 36px 0 12px; color: #333333; background-color: #fafafa; border: 1px solid #dedede; border-radius: 10px; outline: none; font-size: 14px; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; }
+
+.filters select:focus { border-color: #f07836; box-shadow: 0 0 0 3px rgba(240, 120, 54, 0.12); }
+
+/* Active restaurants checkbox */
+
+.filters label { display: inline-flex; align-items: center; gap: 9px; min-height: 44px; color: #444444; font-size: 14px; white-space: nowrap; cursor: pointer; }
+
+.filters input[type='checkbox'] { width: 17px; height: 17px; margin: 0; accent-color: #f07836; cursor: pointer; }
+
+/* Reset button */
+
+.filters button { min-height: 44px; padding: 0 18px; color: #e8662b; background: #fff4ed; border: 1px solid #ffddca; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s, color 0.2s, transform 0.2s; }
+
+.filters button:hover { color: #ffffff; background: #e8662b; border-color: #e8662b; }
+
+.filters button:active { transform: scale(0.97); }
+
+/* Restaurant list */
+
+.list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
+
+/* Empty state */
+
+.no-restaurants { grid-column: 1 / -1; padding: 48px 20px; color: #777777; background: #fafafa; border: 1px dashed #d8d8d8; border-radius: 14px; text-align: center; font-size: 16px; }
+
+/* Responsive layout */
+
+@media (max-width: 900px) { :host { padding: 24px 18px 36px; }
+
+.list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+
+.filters input[type='text'] { flex-basis: 100%; }
+
+.filters select { flex: 1 1 180px; } }
+
+@media (max-width: 600px) { :host { padding: 20px 12px 28px; }
+
+h2 { margin-bottom: 18px; font-size: 24px; }
+
+.filters { gap: 12px; padding: 14px; border-radius: 12px; }
+
+.filters input[type='text'], .filters select { flex: 1 1 100%; width: 100%; min-width: 0; }
+
+.filters label { width: 100%; }
+
+.filters button { width: 100%; }
+
+.list { grid-template-columns: 1fr; gap: 16px; } }

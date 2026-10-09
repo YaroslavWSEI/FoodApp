@@ -1,15 +1,16 @@
-<section class="card">
-<div class = "name">{{ restaurant().name }}</div>
-<div class = "description">{{ restaurant().description }}</div>
-<div class = "rating">Rating: {{ restaurant().rating }}</div>
-<div class = "cuisine">Cuisine: {{ restaurant().cuisine }}</div>
-<div class = "delivery-time">Delivery Time: {{ restaurant().deliveryTimeMin }} - {{ restaurant().deliveryTimeMax }}</div>
-<div class = "delivery-fee">Delivery Fee: {{ restaurant().deliveryFee }}</div>
-<div class = "status">
-  <span [class]="'status-' + (restaurant().isActive ? 'open' : 'closed')">
-    {{ restaurant().isActive ? 'Otwarte' : 'Zamknięte' }}
-  </span>
-</div>
-<button class="order-button" [disabled]="!restaurant().isActive">Order Now</button>
+  <section class="card">
+  <img class="restaurant-image" [src]="restaurant().imageUrl" [alt]="restaurant().name" />
+  <div class = "name">{{ restaurant().name }}</div>
+  <div class = "description">{{ restaurant().description }}</div>
+  <div class = "rating">Rating: {{ restaurant().rating }}</div>
+  <div class = "cuisine">Cuisine: {{ restaurant().cuisine }}</div>
+  <div class = "delivery-time">Delivery Time: {{ restaurant().deliveryTimeMin }} - {{ restaurant().deliveryTimeMax }}</div>
+  <div class = "delivery-fee">Delivery Fee: {{ restaurant().deliveryFee }}</div>
+  <div class = "status">
+    <span [class]="'status-' + (restaurant().isActive ? 'open' : 'closed')">
+      {{ restaurant().isActive ? 'Otwarte' : 'Zamknięte' }}
+    </span>
+  </div>
+  <button class="order-button" [disabled]="!restaurant().isActive">Order Now</button>
 
-</section>
+  </section>

@@ -1,10 +1,35 @@
-<h2 >Restaurant List</h2>
-<input type="text" placeholder="Search..." [value]="searchTerm()" (input)="onSearch($event)" />
+<h2>Restaurant List</h2>
+
+<section class="filters">
+  <input type="text" placeholder="Search..." [value]="searchTerm()" (input)="onSearch($event)"/>
+<select [value]="selectedCuisine()" (change)="onCuisineChange($event)">
+  @for (cuisine of cuisines; track cuisine) {
+    <option [value]="cuisine">
+      {{ cuisine === 'All' ? 'Wszystkie' : cuisine }}
+    </option>
+  }
+</select>
+
+  <label>
+    <input type="checkbox" [checked]="onlyActive()" (change)="onStatusChange($event)"/> Czynne teraz
+  </label>
+
+  <select [value]="selectedSort()"(change)="onSortChange($event)">
+    <option value="rating">Rating</option>
+    <option value="deliveryTime">Czas dostawy</option>
+    <option value="deliveryFee">Koszt dostawy</option>
+  </select>
+  
+  <button (click)="resetFilters()">Reset Filters</button>
+
+</section>
 <section class="list">
-@for(restaurant of restaraunts(); track restaurant.id){
-  <app-rest-card [restaurant]="restaurant"></app-rest-card>
-}
-@empty {
-    <div class="no-restaurants">Brak dostępnych restauracji</div>
+
+  @for (restaurant of filteredRestaurants();track restaurant.id) {
+
+    <app-rest-card [restaurant]="restaurant"></app-rest-card>
+
+  }
+  @empty {<div class="no-restaurants">Nie znaleziono restauracji.</div>
 }
 </section>
