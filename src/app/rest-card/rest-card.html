@@ -1,6 +1,6 @@
   <section class="card">
   <img class="restaurant-image" [src]="restaurant().imageUrl" [alt]="restaurant().name" />
-  <div class = "name">{{ restaurant().name }}</div>
+  <div class = "name"><a routerLink="/restaurant/{{restaurant().id }}"> {{ restaurant().name }}</a></div>
   <div class = "description">{{ restaurant().description }}</div>
   <div class = "rating">Rating: {{ restaurant().rating }}</div>
   <div class = "cuisine">Cuisine: {{ restaurant().cuisine }}</div>

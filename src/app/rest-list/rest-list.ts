@@ -1,7 +1,9 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { RestCard } from '../rest-card/rest-card';
 import data from '../../data/restaurants.json';
 import { Cuisine } from '../models/cuisines.models';
+import { Restaurant } from '../models/restaurant.models';
+import { Restaurants } from '../services/restaurants';
 
 type SortOption = 'rating' | 'deliveryTime' | 'deliveryFee';
 
@@ -12,7 +14,8 @@ type SortOption = 'rating' | 'deliveryTime' | 'deliveryFee';
   styleUrl: './rest-list.scss',
 })
 export class RestList {
-  restaurants = signal(data);
+  restaurantsService =inject(Restaurants);
+  restaurants = signal(this.restaurantsService.getAll());
 
   searchTerm = signal('');
   selectedCuisine = signal<Cuisine>('All');

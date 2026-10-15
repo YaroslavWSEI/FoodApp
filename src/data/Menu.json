@@ -1,0 +1,681 @@
+[
+  {
+    "nazwa": "Oliwa z oliwek Extra Virgin 1L",
+    "opis": "Wysokiej jakości tłoczona na zimno oliwa z oliwek, niezbędna baza do sosów, marynat i dań włoskich w kuchni restauracyjnej.",
+    "cena": 45.99,
+    "zdjęcie": "https://example.com/images/oliwa_extra_virgin.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Sos pomidorowy Passata Gourmet 1kg",
+    "opis": "Gładka passata z dojrzałych w słońcu pomidorów, idealna jako baza do sosów do pizzy i makaronów.",
+    "cena": 14.50,
+    "zdjęcie": "https://example.com/images/passata.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Ryż Arborio do risotto 1kg",
+    "opis": "Włoski krótkoziarnisty ryż o wysokiej zawartości skrobi, gwarantujący kremową konsystencję tradycyjnego risotto.",
+    "cena": 18.00,
+    "zdjęcie": "https://example.com/images/ryz_arborio.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Makaron Spaghetti z pszenicy durum 1kg",
+    "opis": "Wydajny profesjonalny makaron, który zachowuje strukturę al dente podczas intensywnego serwowania.",
+    "cena": 12.99,
+    "zdjęcie": "https://example.com/images/makaron_spaghetti.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Oliwki czarne drylowane 1kg",
+    "opis": "Wygodne w użyciu drylowane czarne oliwki w solance, idealne do sałatek, pizzy i dań z pieca.",
+    "cena": 22.00,
+    "zdjęcie": "https://example.com/images/oliwki_czarne.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Grzyby borowiki suszone 100g",
+    "opis": "Aromatyczne leśne borowiki o intensywnym smaku, doskonałe do wykwintnych zup i sosów mięsnych.",
+    "cena": 39.99,
+    "zdjęcie": "https://example.com/images/borowiki.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Sos sojowy ciemny 1L",
+    "opis": "Tradycyjny sos sojowy o głębokim smaku umami, niezastąpiony w kuchni azjatyckiej i jako marynata.",
+    "cena": 24.50,
+    "zdjęcie": "https://example.com/images/sos_sojowy.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Kapary w solance 500g",
+    "opis": "Małe pączki kaparów o wyrazistym, octowo-słonym smaku, idealne do dań rybnych i carpaccio.",
+    "cena": 19.50,
+    "zdjęcie": "https://example.com/images/kapary.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Ocet balsamiczny z Modeny 1L",
+    "opis": "Włoski ocet balsamiczny leżakowany w drewnianych beczkach, idealny do dań i sosów winegret.",
+    "cena": 29.00,
+    "zdjęcie": "https://example.com/images/ocet_balsamiczny.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Mąka pszenna typ 00 do pizzy 1kg",
+    "opis": "Włoska mąka o wysokiej sile, zapewniająca idealną elastyczność ciasta na pizzę neapolitańską.",
+    "cena": 11.50,
+    "zdjęcie": "https://example.com/images/maka_pizza.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Miód wielokwiatowy naturalny 1kg",
+    "opis": "Naturalny miód pszczeli stosowany jako dodatek do marynat mięsnych, sosów i deserów restauracyjnych.",
+    "cena": 35.00,
+    "zdjęcie": "https://example.com/images/miod.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Syrop klonowy kanadyjski 250ml",
+    "opis": "Czysty syrop klonowy Grade A, stosowany do dań śniadaniowych, dań wytrawnych oraz deserów.",
+    "cena": 42.00,
+    "zdjęcie": "https://example.com/images/syrop_klonowy.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Kawa ziarnista Arabica 1kg",
+    "opis": "Wysokiej jakości ziarna Arabiki o bogatym aromacie, stworzone dla restauracyjnych ekspresów.",
+    "cena": 49.00,
+    "zdjęcie": "https://example.com/images/kawa.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Ciecierzyca gotowana w puszce 800g",
+    "opis": "Gotowa do użycia ciecierzyca, doskonała do szybkiego przygotowania hummusu i dań wegańskich.",
+    "cena": 13.00,
+    "zdjęcie": "https://example.com/images/ciecierzyca.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Pomidory pelati całe w puszce 800g",
+    "opis": "Obrane całe pomidory w soku pomidorowym, stanowiące idealną bazę do zup i dań włoskich.",
+    "cena": 15.00,
+    "zdjęcie": "https://example.com/images/pelati.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Orzechy nerkowca całe 500g",
+    "opis": "Chrupiące orzechy nerkowca do dań kuchni azjatyckiej, sałatek oraz produkcji kremów roślinnych.",
+    "cena": 32.00,
+    "zdjęcie": "https://example.com/images/nerkowce.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Migdały blanszowane płatki 500g",
+    "opis": "Cienkie płatki migdałowe doskonałe do dekoracji dań wytrawnych, sałatek i wypieków.",
+    "cena": 28.00,
+    "zdjęcie": "https://example.com/images/platki_migdalowe.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Pasta sezamowa Tahini 500g",
+    "opis": "100% pasta z prażonych nasion sezamu, kluczowy składnik hummusu i dressingów.",
+    "cena": 26.50,
+    "zdjęcie": "https://example.com/images/tahini.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Pesto alla Genovese 500g",
+    "opis": "Aromatyczne zielone pesto ze świeżej bazylii, oliwy i sera, gotowe do makaronów.",
+    "cena": 31.00,
+    "zdjęcie": "https://example.com/images/pesto.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Karczochy w ćwiartkach marynowane 500g",
+    "opis": "Delikatne serca karczochów w zalewie, idealne jako dodatek do pizzy, sałatek i przystawek.",
+    "cena": 27.50,
+    "zdjęcie": "https://example.com/images/karczochy.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Papryka wędzona słodka 500g",
+    "opis": "Hiszpańska papryka o unikalnym dymnym aromacie, nadająca głęboki smak potrawom mięsnym.",
+    "cena": 34.00,
+    "zdjęcie": "https://example.com/images/papryka_wedzona.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Pieprz czarny ziarnisty 500g",
+    "opis": "Wysokiej jakości ziarna czarnego pieprzu o ostrym smaku, do restauracyjnych młynków.",
+    "cena": 29.99,
+    "zdjęcie": "https://example.com/images/pieprz.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Sól morska gruba 1kg",
+    "opis": "Naturalna gruboziarnista sól morska do gotowania w dużych naczyniach i młynków.",
+    "cena": 10.50,
+    "zdjęcie": "https://example.com/images/sol_morska.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Olej z pestek winogron 1L",
+    "opis": "Neutralny w smaku olej o wysokiej temperaturze dymienia, idealny do smażenia.",
+    "cena": 28.50,
+    "zdjęcie": "https://example.com/images/olej_winogron.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Bulion warzywny koncentrat 1kg",
+    "opis": "Wydajny koncentrat bulionu warzywnego stanowiący uniwersalną bazę do zup i sosów.",
+    "cena": 25.00,
+    "zdjęcie": "https://example.com/images/bulion.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Skrobia kukurydziana 1kg",
+    "opis": "Naturalny produkt zagęszczający do sosów, zup i dań kuchni azjatyckiej.",
+    "cena": 11.00,
+    "zdjęcie": "https://example.com/images/skrobia_kukurydziana.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Ocet ryżowy japoński 500ml",
+    "opis": "Łagodny ocet niezbędny do przygotowania zaprawy do ryżu w restauracjach sushi.",
+    "cena": 16.00,
+    "zdjęcie": "https://example.com/images/ocet_ryzowy.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Olej sezamowy prażony 250ml",
+    "opis": "Aromatyczny olej z prażonych nasion sezamu do wykończenia dań azjatyckich.",
+    "cena": 22.00,
+    "zdjęcie": "https://example.com/images/olej_sezamowy.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Sos chili słodki (Sweet Chili) 1L",
+    "opis": "Popularny słodko-pikantny sos idealny do dań z kurczaka, sajgonek i przekąsek.",
+    "cena": 19.00,
+    "zdjęcie": "https://example.com/images/sos_chili.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Musztarda Dijon z Burgundii 1kg",
+    "opis": "Ostra, wyrazista francuska musztarda doskonała do marynat, sosów i dań mięsnych.",
+    "cena": 23.50,
+    "zdjęcie": "https://example.com/images/musztarda_dijon.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Chrzan tarty ostry 1kg",
+    "opis": "Tradycyjny, wyrazisty chrzan do dań mięsnych, zimnych płyt i zup.",
+    "cena": 15.50,
+    "zdjęcie": "https://example.com/images/chrzan.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Majonez gastronomiczny tradycyjny 3kg",
+    "opis": "Gęsty i kremowy majonez stanowiący bazę do sosów zimnych, sałatek i burgerów.",
+    "cena": 38.00,
+    "zdjęcie": "https://example.com/images/majonez.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Ketchup gastronomiczny łagodny 5kg",
+    "opis": "Wydajny, gęsty ketchup z pomidorów, idealny do dań fast food i dań dziecięcych.",
+    "cena": 33.00,
+    "zdjęcie": "https://example.com/images/ketchup.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Sos Worcestershire 500ml",
+    "opis": "Fermentowany sos o złożonym smaku umami, niezastąpiony do tatara i dań wołowych.",
+    "cena": 27.00,
+    "zdjęcie": "https://example.com/images/sos_worcestershire.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Tabasco Original Red Sauce 350ml",
+    "opis": "Klasyczny ostry sos z czerwonej papryczki chili, soli i octu do doprawiania dań.",
+    "cena": 39.50,
+    "zdjęcie": "https://example.com/images/tabasco.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Sos BBQ wędzony 1L",
+    "opis": "Gęsty, dymny sos barbecue do żeberek, burgerów i mięs z grilla.",
+    "cena": 18.50,
+    "zdjęcie": "https://example.com/images/sos_bbq.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Syrop barmanowy Marakuja 700ml",
+    "opis": "Owocowy syrop do koktajli barowych, deserów i lemoniad restauracyjnych.",
+    "cena": 35.00,
+    "zdjęcie": "https://example.com/images/syrop_marakuja.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Purée z marakui 100% 1kg",
+    "opis": "Przetarte owoce marakui bez dodatku cukru do deserów, kremów i drinków.",
+    "cena": 48.00,
+    "zdjęcie": "https://example.com/images/puree_marakuja.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Czekolada gorzka 70% pastilles 1kg",
+    "opis": "Profesjonalne pastylki z gorzkiej czekolady do deserów, polew i musów.",
+    "cena": 46.00,
+    "zdjęcie": "https://example.com/images/czekolada_pastilles.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Kakao naturalne w proszku 1kg",
+    "opis": "Wysokiej jakości odtłuszczone kakao do wypieków, polew i napojów czekoladowych.",
+    "cena": 31.00,
+    "zdjęcie": "https://example.com/images/kakao.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Żelatina spożywcza w listkach 1kg",
+    "opis": "Profesjonalna żelatina w arkuszach do deserów, galaret i musów.",
+    "cena": 49.99,
+    "zdjęcie": "https://example.com/images/zelatyna.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Puder cukier trzcinowy 1kg",
+    "opis": "Drobno zmielony cukier trzcinowy do eleganckiej dekoracji deserów i wypieków.",
+    "cena": 17.00,
+    "zdjęcie": "https://example.com/images/puder_trzcinowy.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Ekstrakt waniliowy naturalny 250ml",
+    "opis": "Czysty ekstrakt z wanilii z ziarnami, nadający autentyczny smak kremom i ciastom.",
+    "cena": 45.00,
+    "zdjęcie": "https://example.com/images/ekstrakt_wanilii.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Płatki drożdżowe nieaktywne 500g",
+    "opis": "Wegański dodatek o serowo-orzechowym posmaku, do zagęszczania i doprawiania dań.",
+    "cena": 29.00,
+    "zdjęcie": "https://example.com/images/platki_drozdzowe.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Nasiona chia 1kg",
+    "opis": "Superfood bogaty w błonnik, stosowany w deserach puddingowych i sałatkach.",
+    "cena": 22.50,
+    "zdjęcie": "https://example.com/images/chia.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Kasza bulgur 1kg",
+    "opis": "Pszenna kasza o orzechowym posmaku, idealna do dań bliskowschodnich i sałatek.",
+    "cena": 12.00,
+    "zdjęcie": "https://example.com/images/kasza_bulgur.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Komosa ryżowa (Quinoa) trójkolorowa 1kg",
+    "opis": "Kompletne źródło białka roślinnego, stosowane w nowoczesnych bowlech restauracyjnych.",
+    "cena": 26.00,
+    "zdjęcie": "https://example.com/images/quinoa.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Makaron Penne Rigate durum 1kg",
+    "opis": "Klasyczne włoskie rurki z pszenicy durum do zapiekanek i dań z cięższymi sosami.",
+    "cena": 12.50,
+    "zdjęcie": "https://example.com/images/makaron_penne.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Makaron Tagliatelle gniazda 1kg",
+    "opis": "Włoskie wstążki makaronowe idealne do dań z sosem grzybowym lub śmietanowym.",
+    "cena": 18.50,
+    "zdjęcie": "https://example.com/images/makaron_tagliatelle.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Grzyby shiitake suszone 250g",
+    "opis": "Azjatyckie grzyby o bogatym smaku umami, doskonałe do zup ramen i dań stir-fry.",
+    "cena": 38.00,
+    "zdjęcie": "https://example.com/images/shiitake.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Glony Nori do sushi 50 szt.",
+    "opis": "Prażone arkusze alg morskich niezbędne do zwijania rolek sushi i maki.",
+    "cena": 32.50,
+    "zdjęcie": "https://example.com/images/nori.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Ryż do sushi 5kg",
+    "opis": "Specjalny krótkoziarnisty ryż o dużej kleistości, dedykowany do profesjonalnego sushi.",
+    "cena": 48.00,
+    "zdjęcie": "https://example.com/images/ryz_sushi.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Pasta Wasabi w tubce 750g",
+    "opis": "Ostra japońska pasta chrzanowa serwowana tradycyjnie do sushi i dań rybnych.",
+    "cena": 29.00,
+    "zdjęcie": "https://example.com/images/wasabi.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Imbir marynowany różowy 1kg",
+    "opis": "Cienko pokrojony marynowany imbir oczyszczający kubki smakowe między kawałkami sushi.",
+    "cena": 21.00,
+    "zdjęcie": "https://example.com/images/imbir_marynowany.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Panko bułka tarta japońska 1kg",
+    "opis": "Tradycyjna japońska panierka o płatkowej strukturze, dająca wyjątkową chrupkość potrawom.",
+    "cena": 19.00,
+    "zdjęcie": "https://example.com/images/panko.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Sos Teriyaki 1L",
+    "opis": "Słodko-słony japoński sos marynatowy do dań z woka, mięs i ryb.",
+    "cena": 25.00,
+    "zdjęcie": "https://example.com/images/sos_teriyaki.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Mleczko kokosowe 17-19% 1L",
+    "opis": "Gęste mleczko kokosowe stanowiące bazę do zup tajskich, curry i deserów wegańskich.",
+    "cena": 18.00,
+    "zdjęcie": "https://example.com/images/mleko_kokosowe.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Pasta Curry czerwona 1kg",
+    "opis": "Pikantna tajska pasta z czerwonej papryki chili i trawy cytrynowej do dań curry.",
+    "cena": 34.00,
+    "zdjęcie": "https://example.com/images/pasta_curry.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Trawa cytrynowa trawa suszona 250g",
+    "opis": "Aromatyczna trawa cytrynowa nadająca cytrusowy akcent zupom i wywarom azjatyckim.",
+    "cena": 22.00,
+    "zdjęcie": "https://example.com/images/trawa_cytrynowa.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Liście limonki Kaffir suszone 100g",
+    "opis": "Charakterystyczne liście o cytrusowym aromacie do dań kuchni tajskiej i wietnamskiej.",
+    "cena": 24.50,
+    "zdjęcie": "https://example.com/images/liscie_kaffir.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Sos rybny 1L",
+    "opis": "Esencjonalny azjatycki sos rybny używany do solenia i głębokiego doprawiania dań.",
+    "cena": 20.00,
+    "zdjęcie": "https://example.com/images/sos_rybny.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Curry indyjskie proszek 1kg",
+    "opis": "Złocista mieszanka korzennych indyjskich przypraw do dań mięsnych i warzywnych.",
+    "cena": 29.50,
+    "zdjęcie": "https://example.com/images/curry_proszek.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Kurkuma mielona 1kg",
+    "opis": "Przyprawa o intensywnej barwie i właściwościach antyoksydacyjnych.",
+    "cena": 26.00,
+    "zdjęcie": "https://example.com/images/kurkuma.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Cynamon cejloński mielony 500g",
+    "opis": "Prawdziwy aromatyczny cynamon o delikatnym smaku do deserów i wypieków.",
+    "cena": 36.00,
+    "zdjęcie": "https://example.com/images/cynamon.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Kmin rzymski (jeera) ziarno 500g",
+    "opis": "Aromatyczne nasiona kminu rzymskiego do dań kuchni meksykańskiej i bliskowschodniej.",
+    "cena": 23.00,
+    "zdjęcie": "https://example.com/images/kmin_rzymski.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Kolendra ziarno 500g",
+    "opis": "Cytrusowo-korzenne nasiona kolendry do marynat i potraw mięsnych.",
+    "cena": 19.50,
+    "zdjęcie": "https://example.com/images/kolendra.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Oregano suszone greckie 500g",
+    "opis": "Dzikie greckie oregano o głębokim aromacie, idealne do pizzy i dań śródziemnomorskich.",
+    "cena": 28.00,
+    "zdjęcie": "https://example.com/images/oregano.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Bazylia suszona 500g",
+    "opis": "Aromatyczna bazylia do sosów pomidorowych i dań kuchni włoskiej.",
+    "cena": 27.00,
+    "zdjęcie": "https://example.com/images/bazylia.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Tymianek suszony 500g",
+    "opis": "Wyrazisty tymianek pasujący do dań pieczonych, mięs i sosów pieczeniowych.",
+    "cena": 25.00,
+    "zdjęcie": "https://example.com/images/tymianek.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Rozmaryn suszony igły 500g",
+    "opis": "Tradycyjny dodatek do ziemniaków pieczonych, mięs i dań z grilla.",
+    "cena": 24.00,
+    "zdjęcie": "https://example.com/images/rozmaryn.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Liście laurowe całe 250g",
+    "opis": "Aromatyczne liście do tradycyjnych polskich zup, wywarów i dań mięsnych.",
+    "cena": 15.00,
+    "zdjęcie": "https://example.com/images/liscie_laurowe.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Ziele angielskie całe 500g",
+    "opis": "Klasyczna korzenna przyprawa do sosów, zup i marynat.",
+    "cena": 22.00,
+    "zdjęcie": "https://example.com/images/ziele_angielskie.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Majeranek otarty 500g",
+    "opis": "Pachnący majeranek niezastąpiony do żurku, pasztetów i dań mięsnych.",
+    "cena": 18.00,
+    "zdjęcie": "https://example.com/images/majeranek.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Czosnek granulowany 1kg",
+    "opis": "Wygodny w użyciu suszony czosnek o wyrazistym smaku do wszelkich potraw.",
+    "cena": 26.50,
+    "zdjęcie": "https://example.com/images/czosnek.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Cebula prażona chrupiąca 1kg",
+    "opis": "Złocista, chrupiąca cebulka do posypywania burgerów, hot-dogów i zapiekanek.",
+    "cena": 19.00,
+    "zdjęcie": "https://example.com/images/cebula_prazona.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Drożdże suszcone instant 500g",
+    "opis": "Aktywne drożdże do profesjonalnych wypieków ciasta na pizzę i chleb.",
+    "cena": 21.50,
+    "zdjęcie": "https://example.com/images/drozdzę.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Proszek do pieczenia 1kg",
+    "opis": "Środek spulchniający do ciast i wypieków restauracyjnych.",
+    "cena": 14.00,
+    "zdjęcie": "https://example.com/images/proszek_pieczenia.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Soda oczyszczona spożywcza 1kg",
+    "opis": "Uniwersalny produkt spulchniający do wypieków i zmiękczania mięs.",
+    "cena": 10.99,
+    "zdjęcie": "https://example.com/images/soda.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Płatki owsiane górskie 1kg",
+    "opis": "Pełnoziarniste płatki owsiane do przygotowywania panierek lub deserów śniadaniowych.",
+    "cena": 10.50,
+    "zdjęcie": "https://example.com/images/platki_owsiane.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Kasza jaglana 1kg",
+    "opis": "Bezglutenowa kasza o delikatnym smaku, dobra na bazę do dań i zapiekanek.",
+    "cena": 13.50,
+    "zdjęcie": "https://example.com/images/kasza_jaglana.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Kasza gryczana palona 1kg",
+    "opis": "Tradycyjna polska kasza gryczana do dań mięsnych z sosami.",
+    "cena": 14.00,
+    "zdjęcie": "https://example.com/images/kasza_gryczana.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Ryż basmati 5kg",
+    "opis": "Aromatyczny ryż o długich, sypkich ziarnach, idealny do dań orientalnych.",
+    "cena": 49.00,
+    "zdjęcie": "https://example.com/images/ryz_basmati.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Ryż jaśminowy 5kg",
+    "opis": "Delikatny ryż o jaśminowym aromacie do dań azjatyckich i mięsnych.",
+    "cena": 45.00,
+    "zdjęcie": "https://example.com/images/ryz_jasminowy.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Fasola czerwona czerwona kidney w puszce 800g",
+    "opis": "Gotowa fasola do dań meksykańskich, chili con carne i sałatek.",
+    "cena": 13.50,
+    "zdjęcie": "https://example.com/images/fasola_czerwona.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Kukurydza słodka w puszce 800g",
+    "opis": "Chrupiące złote ziarna kukurydzy do sałatek, pizzy i dań meksykańskich.",
+    "cena": 12.99,
+    "zdjęcie": "https://example.com/images/kukurydza.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Ananas w plastrach w syropie 800g",
+    "opis": "Słodkie plastry ananasa do pizzy Hawaii, dań azjatyckich i deserów.",
+    "cena": 15.00,
+    "zdjęcie": "https://example.com/images/ananas.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Brzoskwinie w połówkach w syropie 800g",
+    "opis": "Soczyste połówki brzoskwiń idealne do deserów i dań wytrawnych z drobiem.",
+    "cena": 16.50,
+    "zdjęcie": "https://example.com/images/brzoskwinie.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Żurawina suszona cała 1kg",
+    "opis": "Słodko-kwaśna suszona żurawina dodawana do sałatek, mięs i serów pleśniowych.",
+    "cena": 28.00,
+    "zdjęcie": "https://example.com/images/zurawina.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Rodzynki sułtanki 1kg",
+    "opis": "Naturalnie słodkie rodzynki do wypieków, dań mięsnych i sałatek.",
+    "cena": 17.50,
+    "zdjęcie": "https://example.com/images/rodzynki.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Orzechy włoskie łuskane 500g",
+    "opis": "Świeże orzechy włoskie do sałatek, dań makaronowych i wykwintnych deserów.",
+    "cena": 35.00,
+    "zdjęcie": "https://example.com/images/orzechy_wloskie.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Orzechy laskowe łuskane 500g",
+    "opis": "Chrupiące orzechy laskowe do pralin, deserów i dań kuchni włoskiej.",
+    "cena": 39.00,
+    "zdjęcie": "https://example.com/images/orzechy_laskowe.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Pestki dyni łuskane 1kg",
+    "opis": "Zielone pestki dyni do posypywania zup kremów, chlebów i sałatek.",
+    "cena": 26.00,
+    "zdjęcie": "https://example.com/images/pestki_dyni.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Nasiona słonecznika łuskane 1kg",
+    "opis": "Chrupiące ziarna słonecznika do wypieków pieczywa i dekoracji dań.",
+    "cena": 13.00,
+    "zdjęcie": "https://example.com/images/slonecznik.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Siemię lniane złociste 1kg",
+    "opis": "Złociste nasiona lnu używane do zagęszczania potraw i zdrowych wypieków.",
+    "cena": 11.50,
+    "zdjęcie": "https://example.com/images/siemie_lniane.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Syrop z agawy 500ml",
+    "opis": "Naturalny roślinny słodzik o niskim indeksie glikemicznym do deserów.",
+    "cena": 29.99,
+    "zdjęcie": "https://example.com/images/syrop_agawa.jpg",
+    "dostepnosc": true
+  },
+  {
+    "nazwa": "Erytrytol słodzik bezkaloryczny 1kg",
+    "opis": "Zdrowy zamiennik cukru o zerowej kaloryczności do deserów dietetycznych.",
+    "cena": 34.50,
+    "zdjęcie": "https://example.com/images/erytrytol.jpg",
+    "dostepnosc": false
+  },
+  {
+    "nazwa": "Ksylitol fiński z brzozy 1kg",
+    "opis": "Naturalny słodzik o wyglądzie i smaku cukru, o niskim indeksie glikemicznym.",
+    "cena": 39.00,
+    "zdjęcie": "https://example.com/images/ksylitol.jpg",
+    "dostepnosc": true
+  }
+]
