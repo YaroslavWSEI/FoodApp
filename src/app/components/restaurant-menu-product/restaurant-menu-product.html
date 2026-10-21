@@ -1,1 +1,17 @@
-<p>restaurant-menu-product works!</p>
+<div class="product-card" [ngClass]="{'is-unavailable': !product().dostepnosc}">
+  
+  <div class="product-info">
+    <h4>{{ product().nazwa }}</h4>
+    <p class="desc">{{ product().opis }}</p>
+    
+    <div class="price-action">
+      <span class="price">{{ product().cena | currency:'PLN' }}</span>
+      <button (click)="addToCart()" [disabled]="!product().dostepnosc">
+        {{ product().dostepnosc ? 'Add to cart' : 'Niedostępny' }}
+      </button>
+    </div>
+  </div>
+
+  <img [src]="product()['zdjęcie']" [alt]="product().nazwa" />
+  
+</div>

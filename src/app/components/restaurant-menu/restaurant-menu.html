@@ -1,1 +1,15 @@
-<p>restaurant-menu works!</p>
+<div class="menu-container">
+  <h2>Menu restauracji</h2>
+  @for (cat of menuCategories(); track cat.category) {
+    <section class="menu-section">
+      <h3 style="border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 20px;">
+        {{ cat.category }}
+      </h3>
+      <div class="product-grid" style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+        @for (prod of cat.products; track prod.id) {
+          <app-restaurant-menu-product [product]="prod" />
+        }
+      </div>
+    </section>
+  }
+</div>

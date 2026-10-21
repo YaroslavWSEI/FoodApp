@@ -1,18 +1,125 @@
-table {
-    width: 90%;
-    margin-left: 5%;
+:host {
+  display: block;
+  height: 100%;
 }
 
-.headers {
-    text-align: center;
-    vertical-align: middle;
-}
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  border-radius: 14px;
+  overflow: hidden; 
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
 
-.restaurant-image {
+  &:hover {
+    border-color: #ffddca;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+  }
+
+  .restaurant-image {
     display: block;
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 12px 12px 0 0;
-    margin-bottom: 12px;
+  }
+
+  .card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .name {
+      margin: 0 0 12px;
+      
+      a {
+        font-size: 20px;
+        font-weight: 700;
+        color: #252525;
+        text-decoration: none;
+        
+        &:hover {
+          color: #e8662b;
+        }
+      }
+    }
+
+    .description {
+      color: #666666;
+      font-size: 14px;
+      margin: 0 0 16px 0;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      
+      .rating {
+        font-weight: 700;
+        color: #252525;
+      }
+
+      .status {
+        font-size: 13px;
+        font-weight: 600;
+        padding: 4px 8px;
+        border-radius: 6px;
+        
+        &.status-open {
+          color: #2e7d32;
+          background: #e8f5e9;
+        }
+        
+        &.status-closed {
+          color: #d32f2f;
+          background: #ffebee;
+        }
+      }
+    }
+
+    .cuisine, .delivery {
+      font-size: 13px;
+      color: #777777;
+      margin-bottom: 6px;
+    }
+
+    // Wypycha przycisk na sam dół karty
+    .order-button {
+      margin-top: auto;
+      min-height: 40px;
+      width: 100%;
+      color: #ffffff;
+      background: #e8662b;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+
+      &:hover:not(:disabled) {
+        background: #d6551b;
+      }
+
+      &:active:not(:disabled) {
+        transform: scale(0.97);
+      }
+
+      &:disabled {
+        background: #dedede;
+        color: #999999;
+        cursor: not-allowed;
+      }
+    }
+  }
 }

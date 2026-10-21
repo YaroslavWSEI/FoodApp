@@ -1,6 +1,5 @@
 import { Component, model, signal } from '@angular/core';
-import { form, FormField } from '@angular/forms/signals';
-import data from '../../data/restaurants.json';
+import { form } from '@angular/forms/signals';
 import { RouterLink } from '@angular/router';
 
 type Restaurant = {
@@ -20,7 +19,7 @@ type Restaurant = {
 @Component({
   selector: 'app-rest-card',
   standalone: true,
-  imports: [FormField, RouterLink],
+  imports: [RouterLink],
   templateUrl: './rest-card.html',
   styleUrl: './rest-card.scss',
 })

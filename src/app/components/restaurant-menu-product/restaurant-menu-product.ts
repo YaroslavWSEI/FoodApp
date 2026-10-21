@@ -1,9 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Product } from '../../models/menu.models';
+import { CurrencyPipe, NgClass } from '@angular/common';
 
 @Component({
-  imports: [],
   selector: 'app-restaurant-menu-product',
-  styleUrl: './restaurant-menu-product.scss',
+  standalone: true,
+  imports: [CurrencyPipe, NgClass],
   templateUrl: './restaurant-menu-product.html',
+  styleUrl: './restaurant-menu-product.scss'
 })
-export class RestaurantMenuProduct {}
+export class RestaurantMenuProduct {
+  product = input.required<Product>();
+  
+  addToCart() {
+    if (this.product().dostepnosc) {
+      console.log('Dodano do koszyka:', this.product().nazwa);
+    }
+  }
+}

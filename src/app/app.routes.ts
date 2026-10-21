@@ -4,20 +4,27 @@ import { RestList } from './rest-list/rest-list';
 import { RestaurantMenu } from './components/restaurant-menu/restaurant-menu';
 
 export const routes: Routes = [
+    // 1. DODANE: Przekierowanie ze strony głównej na listę restauracji
     {
-        path:'restaurants',
-        component : RestList,
+        path: '',
+        redirectTo: 'restaurants',
+        pathMatch: 'full'
     },
     {
-        path :'restaurant/:id',
+        path: 'restaurants',
+        component: RestList,
+    },
+    {
+        path: 'restaurant/:id',
         component: RestaurantsDetails
     },
     {
-        path:'restaurant/:id/menu',
-        component : RestaurantMenu,
+        path: 'restaurant/:id/menu',
+        component: RestaurantMenu,
     },
+    // 2. POPRAWKA: Zmiana drugiego :id na :productId, aby parametry się nie nadpisywały
     {
-        path:'restaurant/:id/menu/product/:id',
-        component : RestaurantMenu,
+        path: 'restaurant/:id/menu/product/:productId',
+        component: RestaurantMenu,
     }
 ];
