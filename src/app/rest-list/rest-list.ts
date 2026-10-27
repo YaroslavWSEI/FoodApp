@@ -1,9 +1,8 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { RestCard } from '../rest-card/rest-card';
-import data from '../../data/restaurants.json';
-import { Cuisine } from '../models/cuisines.models';
 import { Restaurant } from '../models/restaurant.models';
-import { Restaurants } from '../services/restaurants';
+import { RestaurantsService } from '../services/restaurants';
+import { CuisinesService } from '../services/cuisines';
 
 type SortOption = 'rating' | 'deliveryTime' | 'deliveryFee';
 
@@ -14,32 +13,39 @@ type SortOption = 'rating' | 'deliveryTime' | 'deliveryFee';
   styleUrl: './rest-list.scss',
 })
 export class RestList {
-  restaurantsService =inject(Restaurants);
-  restaurants = signal(this.restaurantsService.getAll());
+  restaurantsService = inject(RestaurantsService);
+  cuisinesService = inject(CuisinesService);
+
+  restaurants = this.restaurantsService.restaurantsList;
 
   searchTerm = signal('');
-  selectedCuisine = signal<Cuisine>('All');
+  selectedCuisine = signal<string>('All');
   onlyActive = signal(false);
   selectedSort = signal<SortOption>('rating');
-  cuisines = ['All',...new Set(data.map(restaurant => restaurant.cuisine).filter(
-    (cuisine): cuisine is NonNullable<typeof cuisine> => cuisine !== null))
-  ];
+  cuisines = computed(() => {
+    const activeCuisines = this.cuisinesService.cuisinesList()
+      .filter(c => c.isActive)
+      .map(c => c.name);
+    return ['All', ...activeCuisines];
+  });
 
   filteredRestaurants = computed(() => {
     let result = this.restaurants();
 
     const search = this.searchTerm().trim().toLowerCase();
 
-    if (search) {result = result.filter(restaurant => restaurant.name.toLowerCase().includes(search));
+    if (search) {
+      result = result.filter((restaurant: Restaurant) => restaurant.name.toLowerCase().includes(search));
     }
 
     const cuisine = this.selectedCuisine();
 
-    if (cuisine !== 'All') {result = result.filter(restaurant =>restaurant.cuisine === cuisine);
+    if (cuisine !== 'All') {
+      result = result.filter((restaurant: Restaurant) => restaurant.cuisine === cuisine);
     }
 
     if (this.onlyActive()) {
-      result = result.filter(restaurant => restaurant.isActive);
+      result = result.filter((restaurant: Restaurant) => restaurant.isActive);
     }
 
     switch (this.selectedSort()) {
@@ -70,9 +76,7 @@ export class RestList {
   }
 
   onCuisineChange(event: Event) {
-    this.selectedCuisine.set(
-      (event.target as HTMLSelectElement).value as Cuisine
-    );
+    this.selectedCuisine.set((event.target as HTMLSelectElement).value);
   }
 
   onStatusChange(event: Event) {
@@ -80,9 +84,7 @@ export class RestList {
   }
 
   onSortChange(event: Event) {
-    this.selectedSort.set(
-      (event.target as HTMLSelectElement).value as SortOption
-    );
+    this.selectedSort.set((event.target as HTMLSelectElement).value as SortOption);
   }
 
   resetFilters() {

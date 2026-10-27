@@ -1,0 +1,32 @@
+<div class="admin-container">
+  <h2>Panel Administratora - Kategorie (Kuchnie)</h2>
+  <div class="admin-actions">
+    <button routerLink="/admin/categories/new">Dodaj nową kategorię</button>
+    <input type="text" placeholder="Szukaj..." [ngModel]="searchTerm()" (ngModelChange)="searchTerm.set($event)">
+  </div>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nazwa</th>
+        <th>Status</th>
+        <th>Akcje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of filteredCategories()">
+        <td>{{ category.id }}</td>
+        <td>{{ category.name }}</td>
+        <td>
+          <span [style.color]="category.isActive ? 'green' : 'red'">
+            {{ category.isActive ? 'Aktywna' : 'Nieaktywna' }}
+          </span>
+        </td>
+        <td>
+          <button [routerLink]="['/admin/categories/edit', category.id]">Edytuj</button>
+          <button *ngIf="category.isActive" (click)="onDeactivate(category.id, category.name)">Dezaktywuj</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

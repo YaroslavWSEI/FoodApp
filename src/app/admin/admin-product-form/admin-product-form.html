@@ -1,0 +1,57 @@
+<div class="admin-container">
+  <h2>{{ isEditMode ? 'Edytuj' : 'Dodaj nowy' }} produkt</h2>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    
+    <div>
+      <label>Restauracja:</label>
+      <select formControlName="restaurantId">
+        <option [ngValue]="null">Wybierz restaurację...</option>
+        <option *ngFor="let res of availableRestaurants()" [value]="res.id">{{ res.name }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Nazwa:</label>
+      <input type="text" formControlName="name">
+    </div>
+
+    <div>
+      <label>Opis:</label>
+      <textarea formControlName="description"></textarea>
+    </div>
+
+    <div>
+      <label>Cena (PLN):</label>
+      <input type="number" formControlName="price" step="0.01">
+    </div>
+
+    <div>
+      <label>URL Zdjęcia:</label>
+      <input type="text" formControlName="imageUrl">
+    </div>
+
+    <div>
+      <label>Czas dostawy (Min):</label>
+      <input type="number" formControlName="deliveryTime">
+    </div>
+
+    <div>
+      <label>Koszt dostawy (PLN):</label>
+      <input type="number" formControlName="deliveryFee">
+    </div>
+
+    <div>
+      <label>Min. wartość zamówienia (PLN):</label>
+      <input type="number" formControlName="minimumOrderValue">
+    </div>
+
+    <div>
+      <label>
+        <input type="checkbox" formControlName="isActive"> Aktywny
+      </label>
+    </div>
+
+    <button type="submit" [disabled]="productForm.invalid">Zapisz</button>
+    <button type="button" routerLink="/admin/products">Anuluj</button>
+  </form>
+</div>

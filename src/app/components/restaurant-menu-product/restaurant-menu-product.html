@@ -1,17 +1,14 @@
-<div class="product-card" [ngClass]="{'is-unavailable': !product().dostepnosc}">
+<div class="product-card" [ngClass]="{'is-unavailable': !product().isActive}">
   
   <div class="product-info">
-    <h4>{{ product().nazwa }}</h4>
-    <p class="desc">{{ product().opis }}</p>
-    
+    <h4>{{ product().name }}</h4>
+    <p class="desc">{{ product().description }}</p>
     <div class="price-action">
-      <span class="price">{{ product().cena | currency:'PLN' }}</span>
-      <button (click)="addToCart()" [disabled]="!product().dostepnosc">
-        {{ product().dostepnosc ? 'Add to cart' : 'Niedostępny' }}
+      <span class="price">{{ product().price | currency:'PLN' }}</span>
+      <button (click)="addToCart()" [disabled]="!product().isActive">
+        {{ product().isActive ? 'Add to cart' : 'Niedostępny' }}
       </button>
     </div>
   </div>
-
-  <img [src]="product()['zdjęcie']" [alt]="product().nazwa" />
-  
+  <img [src]="product().imageUrl" [alt]="product().name" />
 </div>

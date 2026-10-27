@@ -1,0 +1,37 @@
+<div class="admin-container">
+  <h2>Panel Administratora - Produkty</h2>
+  <div class="admin-actions">
+    <button routerLink="/admin/products/new">Dodaj nowy produkt</button>
+    <input type="text" placeholder="Szukaj..." [ngModel]="searchTerm()" (ngModelChange)="searchTerm.set($event)">
+    <label>
+      <input type="checkbox" [ngModel]="showOnlyActive()" (ngModelChange)="showOnlyActive.set($event)"> Pokaż tylko aktywne
+    </label>
+  </div>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Nazwa</th>
+        <th>Restauracja</th>
+        <th>Cena</th>
+        <th>Status</th>
+        <th>Akcje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of filteredProducts()">
+        <td>{{ product.name }}</td>
+        <td>{{ getRestaurantName(product.restaurantId) }}</td>
+        <td>{{ product.price !== null ? product.price + ' PLN' : 'Brak' }}</td>
+        <td>
+          <span [style.color]="product.isActive ? 'green' : 'red'">
+            {{ product.isActive ? 'Aktywny' : 'Nieaktywny' }}
+          </span>
+        </td>
+        <td>
+          <button [routerLink]="['/admin/products/edit', product.id]">Edytuj</button>
+          <button *ngIf="product.isActive" (click)="onDeactivate(product.id, product.name)">Dezaktywuj</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

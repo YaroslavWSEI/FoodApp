@@ -1,6 +1,6 @@
 // restaurants-details.ts
 import { Component, input, computed, inject } from '@angular/core';
-import { Restaurants } from '../../services/restaurants';
+import { RestaurantsService } from '../../services/restaurants';
 import { RestaurantMenu } from '../restaurant-menu/restaurant-menu';
 import { CurrencyPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './restaurants-details.scss'
 })
 export class RestaurantsDetails {
-  private readonly restaurantService = inject(Restaurants);
+  private readonly restaurantService = inject(RestaurantsService);
   id = input.required<number>();
   restaurant = computed(() => this.restaurantService.getById(Number(this.id())));
 }

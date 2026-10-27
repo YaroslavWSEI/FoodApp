@@ -1,0 +1,19 @@
+<div class="admin-container">
+  <h2>{{ isEditMode ? 'Edytuj' : 'Dodaj nową' }} kategorię</h2>
+  <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+    
+    <div>
+      <label>Nazwa kategorii (kuchni):</label>
+      <input type="text" formControlName="name">
+    </div>
+
+    <div>
+      <label>
+        <input type="checkbox" formControlName="isActive"> Aktywna
+      </label>
+    </div>
+
+    <button type="submit" [disabled]="categoryForm.invalid">Zapisz</button>
+    <button type="button" routerLink="/admin/categories">Anuluj</button>
+  </form>
+</div>

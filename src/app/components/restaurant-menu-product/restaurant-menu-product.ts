@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { Product } from '../../models/menu.models';
+import { Product } from '../../models/product.models';
 import { CurrencyPipe, NgClass } from '@angular/common';
 
 @Component({
@@ -13,8 +13,8 @@ export class RestaurantMenuProduct {
   product = input.required<Product>();
   
   addToCart() {
-    if (this.product().dostepnosc) {
-      console.log('Dodano do koszyka:', this.product().nazwa);
+    if (this.product().isActive) {
+      console.log('Dodano do koszyka:', this.product().name);
     }
   }
 }

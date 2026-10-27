@@ -2,19 +2,20 @@
 
 <section class="filters">
   <input type="text" placeholder="Search..." [value]="searchTerm()" (input)="onSearch($event)"/>
-<select [value]="selectedCuisine()" (change)="onCuisineChange($event)">
-  @for (cuisine of cuisines; track cuisine) {
-    <option [value]="cuisine">
-      {{ cuisine === 'All' ? 'Wszystkie' : cuisine }}
-    </option>
-  }
-</select>
+  
+  <select [value]="selectedCuisine()" (change)="onCuisineChange($event)">
+    @for (cuisine of cuisines(); track cuisine) {
+      <option [value]="cuisine">
+        {{ cuisine === 'All' ? 'Wszystkie' : cuisine }}
+      </option>
+    }
+  </select>
 
   <label>
     <input type="checkbox" [checked]="onlyActive()" (change)="onStatusChange($event)"/> Czynne teraz
   </label>
 
-  <select [value]="selectedSort()"(change)="onSortChange($event)">
+  <select [value]="selectedSort()" (change)="onSortChange($event)">
     <option value="rating">Rating</option>
     <option value="deliveryTime">Czas dostawy</option>
     <option value="deliveryFee">Koszt dostawy</option>
@@ -25,11 +26,10 @@
 </section>
 <section class="list">
 
-  @for (restaurant of filteredRestaurants();track restaurant.id) {
-
+  @for (restaurant of filteredRestaurants(); track restaurant.id) {
     <app-rest-card [restaurant]="restaurant"></app-rest-card>
-
   }
-  @empty {<div class="no-restaurants">Nie znaleziono restauracji.</div>
-}
+  @empty {
+    <div class="no-restaurants">Nie znaleziono restauracji.</div>
+  }
 </section>

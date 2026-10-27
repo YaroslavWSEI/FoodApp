@@ -1,7 +1,12 @@
-import { Component, input, computed } from '@angular/core';
+import { Component, input, computed, inject } from '@angular/core';
 import { RestaurantMenuProduct } from '../restaurant-menu-product/restaurant-menu-product';
-import { MenuCategory, RestaurantMenuData } from '../../models/menu.models';
-import menuData from '../../../data/Menu.json'; 
+import { Product } from '../../models/product.models';
+import { ProductsService } from '../../services/product.service/product.service';
+
+interface MenuCategory {
+  category: string;
+  products: Product[];
+}
 
 @Component({
   selector: 'app-restaurant-menu',
@@ -11,11 +16,24 @@ import menuData from '../../../data/Menu.json';
   styleUrl: './restaurant-menu.scss'
 })
 export class RestaurantMenu {
+  private productsService = inject(ProductsService);
   id = input.required<number>(); 
-  private typedMenuData = menuData as unknown as RestaurantMenuData[];
   
   menuCategories = computed<MenuCategory[]>(() => {
-    const menu = this.typedMenuData.find(m => m.restaurantId === Number(this.id()));
-    return menu ? menu.categories : (this.typedMenuData[0]?.categories || []);
+    const allProducts = this.productsService.productsList();
+    
+    const restaurantProducts = allProducts.filter(p => 
+      p.restaurantId === Number(this.id()) && p.isActive
+    );
+    
+    if (restaurantProducts.length > 0) {
+      return [
+        {
+          category: 'Menu',
+          products: restaurantProducts 
+        }
+      ];
+    }
+    return [];
   });
 }

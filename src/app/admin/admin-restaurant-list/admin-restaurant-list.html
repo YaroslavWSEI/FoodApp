@@ -1,0 +1,47 @@
+<div class="admin-container">
+  <h2>Panel Administratora - Restauracje</h2>
+
+  <div class="admin-actions">
+    <button routerLink="/admin/restaurants/new">Dodaj nową restaurację</button>
+    <input type="text" placeholder="Szukaj..." [ngModel]="searchTerm()" (ngModelChange)="searchTerm.set($event)">
+    <label>
+      <input type="checkbox" [ngModel]="showOnlyActive()" (ngModelChange)="showOnlyActive.set($event)"> Pokaż tylko aktywne
+    </label>
+  </div>
+
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th (click)="toggleSort('name')">
+          Nazwa <span *ngIf="sortColumn() === 'name'">{{ sortDirection() === 'asc' ? '▲' : '▼' }}</span>
+        </th>
+        <th (click)="toggleSort('cuisine')">
+          Kuchnia <span *ngIf="sortColumn() === 'cuisine'">{{ sortDirection() === 'asc' ? '▲' : '▼' }}</span>
+        </th>
+        <th (click)="toggleSort('rating')">
+          Ocena <span *ngIf="sortColumn() === 'rating'">{{ sortDirection() === 'asc' ? '▲' : '▼' }}</span>
+        </th>
+        <th (click)="toggleSort('isActive')">
+          Status <span *ngIf="sortColumn() === 'isActive'">{{ sortDirection() === 'asc' ? '▲' : '▼' }}</span>
+        </th>
+        <th>Akcje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let restaurant of filteredRestaurants()">
+        <td>{{ restaurant.name }}</td>
+        <td>{{ restaurant.cuisine || 'Brak' }}</td>
+        <td>{{ restaurant.rating !== null ? restaurant.rating : 'Brak' }}</td>
+        <td>
+          <span [style.color]="restaurant.isActive ? 'green' : 'red'">
+            {{ restaurant.isActive ? 'Aktywna' : 'Nieaktywna' }}
+          </span>
+        </td>
+        <td>
+          <button [routerLink]="['/admin/restaurants/edit', restaurant.id]">Edytuj</button>
+          <button *ngIf="restaurant.isActive" (click)="onDeactivate(restaurant.id, restaurant.name)">Dezaktywuj</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

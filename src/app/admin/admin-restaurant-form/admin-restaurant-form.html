@@ -1,0 +1,64 @@
+<div class="admin-container">
+  <h2>{{ isEditMode ? 'Edytuj' : 'Dodaj nową' }} restaurację</h2>
+
+  <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()">
+    
+    <div>
+      <label>Nazwa:</label>
+      <input type="text" formControlName="name">
+      <small style="color:red" *ngIf="restaurantForm.get('name')?.invalid && restaurantForm.get('name')?.touched">Nazwa jest wymagana (min 3 znaki).</small>
+    </div>
+
+    <div>
+      <label>Opis:</label>
+      <textarea formControlName="description"></textarea>
+      <small style="color:red" *ngIf="restaurantForm.get('description')?.invalid && restaurantForm.get('description')?.touched">Opis jest wymagany.</small>
+    </div>
+
+    <div>
+      <label>Kuchnia:</label>
+      <select formControlName="cuisine">
+        <option [ngValue]="null">Wybierz kuchnię...</option>
+        <option *ngFor="let c of availableCuisines()" 
+                [value]="c.name" 
+                [disabled]="!c.isActive">
+          {{ c.name }}
+        </option>
+      </select>
+    </div>
+
+    <div>
+      <label>URL Zdjęcia:</label>
+      <input type="text" formControlName="imageUrl">
+    </div>
+
+    <div>
+      <label>Czas dostawy (Min):</label>
+      <input type="number" formControlName="deliveryTimeMin">
+    </div>
+
+    <div>
+      <label>Czas dostawy (Max):</label>
+      <input type="number" formControlName="deliveryTimeMax">
+    </div>
+
+    <div>
+      <label>Koszt dostawy (PLN):</label>
+      <input type="number" formControlName="deliveryFee">
+    </div>
+
+    <div>
+      <label>Minimalna wartość zamówienia (PLN):</label>
+      <input type="number" formControlName="minimumOrderValue">
+    </div>
+
+    <div>
+      <label>
+        <input type="checkbox" formControlName="isActive"> Aktywna
+      </label>
+    </div>
+
+    <button type="submit" [disabled]="restaurantForm.invalid">Zapisz</button>
+    <button type="button" routerLink="/admin/restaurants">Anuluj</button>
+  </form>
+</div>
