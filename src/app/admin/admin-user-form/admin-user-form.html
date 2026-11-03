@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h2 class="card-title mb-4">Nowe konto administratora</h2>
+          @if (errorMessage()) {
+            <div class="alert alert-danger">{{ errorMessage() }}</div>
+          }
+          @if (successMessage()) {
+            <div class="alert alert-success">{{ successMessage() }}</div>
+          }
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label class="form-label">Imię</label>
+              <input class="form-control" formControlName="name" />
+              @if (form.get('name')?.invalid && form.get('name')?.touched) {
+                <div class="text-danger small">Imię jest wymagane.</div>
+              }
+            </div>
+            <div class="mb-3">
+              <label class="form-label">E-mail</label>
+              <input type="email" class="form-control" formControlName="email" />
+              @if (form.get('email')?.invalid && form.get('email')?.touched) {
+                <div class="text-danger small">Podaj poprawny adres e-mail.</div>
+              }
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Hasło</label>
+              <input type="password" class="form-control" formControlName="password" />
+              @if (form.get('password')?.invalid && form.get('password')?.touched) {
+                <div class="text-danger small">Hasło musi mieć co najmniej 6 znaków.</div>
+              }
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Telefon (opcjonalnie)</label>
+              <input class="form-control" formControlName="phone" />
+            </div>
+            <div class="d-flex gap-2">
+              <button type="submit" class="btn btn-danger flex-grow-1" [disabled]="form.invalid">Utwórz konto admina</button>
+              <a routerLink="/admin/users" class="btn btn-secondary">Anuluj</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

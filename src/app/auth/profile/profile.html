@@ -1,0 +1,62 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h2 class="card-title mb-1">Mój profil</h2>
+          <p class="text-muted mb-4">Rola: <span class="badge bg-secondary">{{ auth.currentUser()?.role }}</span></p>
+          @if (errorMessage()) {
+            <div class="alert alert-danger">{{ errorMessage() }}</div>
+          }
+          @if (successMessage()) {
+            <div class="alert alert-success">{{ successMessage() }}</div>
+          }
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label class="form-label">Imię</label>
+              <input class="form-control" formControlName="name" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">E-mail</label>
+              <input type="email" class="form-control" formControlName="email" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Telefon</label>
+              <input class="form-control" formControlName="phone" />
+            </div>
+            @if (isCustomer()) {
+              <fieldset class="border rounded p-3 mb-3">
+                <legend class="float-none w-auto fs-6 px-2">Adres dostawy</legend>
+                <div class="mb-2">
+                  <label class="form-label">Ulica</label>
+                  <input class="form-control" formControlName="street" />
+                </div>
+                <div class="row mb-2">
+                  <div class="col">
+                    <label class="form-label">Nr budynku</label>
+                    <input class="form-control" formControlName="buildingNumber" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label">Nr lokalu</label>
+                    <input class="form-control" formControlName="apartmentNumber" />
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col">
+                    <label class="form-label">Kod pocztowy</label>
+                    <input class="form-control" formControlName="postalCode" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label">Miasto</label>
+                    <input class="form-control" formControlName="city" />
+                  </div>
+                </div>
+              </fieldset>
+            }
+            <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid">Zapisz zmiany</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

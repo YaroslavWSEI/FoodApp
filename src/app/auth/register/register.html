@@ -1,0 +1,93 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h2 class="card-title mb-4">Rejestracja</h2>
+          @if (errorMessage()) {
+            <div class="alert alert-danger">{{ errorMessage() }}</div>
+          }
+          @if (successMessage()) {
+            <div class="alert alert-success">{{ successMessage() }}</div>
+          }
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label class="form-label">Imię</label>
+              <input class="form-control" formControlName="name" />
+              @if (form.get('name')?.invalid && form.get('name')?.touched) {
+                <div class="text-danger small">Imię jest wymagane.</div>
+              }
+            </div>
+            <div class="mb-3">
+              <label class="form-label">E-mail</label>
+              <input type="email" class="form-control" formControlName="email" />
+              @if (form.get('email')?.invalid && form.get('email')?.touched) {
+                <div class="text-danger small">Podaj poprawny adres e-mail.</div>
+              }
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Telefon (opcjonalnie)</label>
+              <input class="form-control" formControlName="phone" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Hasło</label>
+              <input type="password" class="form-control" formControlName="password" />
+              @if (form.get('password')?.invalid && form.get('password')?.touched) {
+                <div class="text-danger small">Hasło musi mieć co najmniej 6 znaków.</div>
+              }
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Potwierdź hasło</label>
+              <input type="password" class="form-control" formControlName="confirmPassword" />
+              @if (form.get('confirmPassword')?.invalid && form.get('confirmPassword')?.touched) {
+                <div class="text-danger small">Hasła muszą być takie same.</div>
+              }
+            </div>
+            <fieldset class="border rounded p-3 mb-3" formGroupName="deliveryAddress">
+              <legend class="float-none w-auto fs-6 px-2">Adres dostawy</legend>
+              <div class="mb-2">
+                <label class="form-label">Ulica</label>
+                <input class="form-control" formControlName="street" />
+                @if (form.get('deliveryAddress.street')?.invalid && form.get('deliveryAddress.street')?.touched) {
+                  <div class="text-danger small">Ulica jest wymagana.</div>
+                }
+              </div>
+              <div class="row mb-2">
+                <div class="col">
+                  <label class="form-label">Nr budynku</label>
+                  <input class="form-control" formControlName="buildingNumber" />
+                  @if (form.get('deliveryAddress.buildingNumber')?.invalid && form.get('deliveryAddress.buildingNumber')?.touched) {
+                    <div class="text-danger small">Wymagane.</div>
+                  }
+                </div>
+                <div class="col">
+                  <label class="form-label">Nr lokalu</label>
+                  <input class="form-control" formControlName="apartmentNumber" />
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col">
+                  <label class="form-label">Kod pocztowy</label>
+                  <input class="form-control" formControlName="postalCode" />
+                  @if (form.get('deliveryAddress.postalCode')?.invalid && form.get('deliveryAddress.postalCode')?.touched) {
+                    <div class="text-danger small">Wymagane.</div>
+                  }
+                </div>
+                <div class="col">
+                  <label class="form-label">Miasto</label>
+                  <input class="form-control" formControlName="city" />
+                  @if (form.get('deliveryAddress.city')?.invalid && form.get('deliveryAddress.city')?.touched) {
+                    <div class="text-danger small">Wymagane.</div>
+                  }
+                </div>
+              </div>
+            </fieldset>
+            <button type="submit" class="btn btn-success w-100" [disabled]="form.invalid">Zarejestruj się</button>
+          </form>
+          <hr>
+          <p class="text-center mb-0">Masz już konto? <a routerLink="/login">Zaloguj się</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

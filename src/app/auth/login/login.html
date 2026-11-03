@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h2 class="card-title mb-4">Logowanie</h2>
+          @if (errorMessage()) {
+            <div class="alert alert-danger">{{ errorMessage() }}</div>
+          }
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label class="form-label">E-mail</label>
+              <input type="email" class="form-control" formControlName="email" />
+              @if (form.get('email')?.invalid && form.get('email')?.touched) {
+                <div class="text-danger small">Podaj poprawny adres e-mail.</div>
+              }
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Hasło</label>
+              <input type="password" class="form-control" formControlName="password" />
+              @if (form.get('password')?.invalid && form.get('password')?.touched) {
+                <div class="text-danger small">Hasło jest wymagane.</div>
+              }
+            </div>
+            <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid">Zaloguj się</button>
+          </form>
+          <hr>
+          <p class="text-center mb-0">Nie masz konta? <a routerLink="/register">Zarejestruj się</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
