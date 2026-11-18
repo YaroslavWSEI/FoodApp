@@ -1,0 +1,80 @@
+<div class="container mt-4">
+  @if (!order()) {
+    <div class="alert alert-danger">Zamówienie nie znalezione.</div>
+  } @else {
+    <div class="d-flex justify-content-between align-items-start mb-4">
+      <div>
+        <h2>Zamówienie</h2>
+        <div class="text-muted small">{{ order()!.id }}</div>
+        <div class="text-muted small">{{ order()!.createdAt | date:'dd.MM.yyyy HH:mm' }}</div>
+      </div>
+      <span class="badge fs-6" [class]="statusClass(order()!.status)">{{ order()!.status }}</span>
+    </div>
+
+    @if (isAdmin()) {
+      <div class="card mb-4">
+        <div class="card-body d-flex align-items-center gap-3">
+          <label class="mb-0 fw-semibold">Zmień status:</label>
+          <select class="form-select w-auto" [value]="order()!.status" (change)="changeStatus($any($event.target).value)">
+            @for (s of statuses; track s) {
+              <option [value]="s">{{ s }}</option>
+            }
+          </select>
+        </div>
+      </div>
+    }
+
+    <div class="row">
+      <div class="col-md-7">
+        <div class="card mb-3">
+          <div class="card-header">Produkty</div>
+          <div class="card-body p-0">
+            <table class="table table-sm mb-0">
+              <thead class="table-light">
+                <tr><th>Produkt</th><th>Ilość</th><th>Cena jedn.</th><th>Razem</th></tr>
+              </thead>
+              <tbody>
+                @for (item of order()!.items; track item.productId) {
+                  <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.price | currency:'PLN' }}</td>
+                    <td>{{ item.price * item.quantity | currency:'PLN' }}</td>
+                  </tr>
+                }
+              </tbody>
+              <tfoot>
+                <tr><td colspan="3" class="text-end">Dostawa</td><td>{{ order()!.deliveryFee | currency:'PLN' }}</td></tr>
+                <tr class="fw-bold"><td colspan="3" class="text-end">Razem</td><td>{{ order()!.total | currency:'PLN' }}</td></tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="card mb-3">
+          <div class="card-header">Dane dostawy</div>
+          <div class="card-body small">
+            <div>{{ order()!.deliveryAddress.firstName }} {{ order()!.deliveryAddress.lastName }}</div>
+            <div>{{ order()!.deliveryAddress.email }}</div>
+            <div>{{ order()!.deliveryAddress.phone }}</div>
+            <hr class="my-2">
+            <div>{{ order()!.deliveryAddress.street }} {{ order()!.deliveryAddress.buildingNumber }}
+              @if (order()!.deliveryAddress.apartmentNumber) { / {{ order()!.deliveryAddress.apartmentNumber }} }
+            </div>
+            <div>{{ order()!.deliveryAddress.postalCode }} {{ order()!.deliveryAddress.city }}</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body small">
+            <div><strong>Restauracja:</strong> {{ order()!.restaurantName }}</div>
+            <div><strong>Płatność:</strong> {{ order()!.paymentMethod }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a routerLink="/orders" class="btn btn-outline-secondary mt-3">← Wróć do listy</a>
+  }
+</div>

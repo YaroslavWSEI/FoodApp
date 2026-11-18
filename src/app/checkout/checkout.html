@@ -1,0 +1,117 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-7">
+      <h2 class="mb-4">Dane dostawy i płatność</h2>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label">Imię *</label>
+            <input class="form-control" formControlName="firstName" />
+            @if (form.get('firstName')?.invalid && form.get('firstName')?.touched) {
+              <div class="text-danger small">Wymagane.</div>
+            }
+          </div>
+          <div class="col">
+            <label class="form-label">Nazwisko *</label>
+            <input class="form-control" formControlName="lastName" />
+            @if (form.get('lastName')?.invalid && form.get('lastName')?.touched) {
+              <div class="text-danger small">Wymagane.</div>
+            }
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">E-mail *</label>
+          <input type="email" class="form-control" formControlName="email" />
+          @if (form.get('email')?.invalid && form.get('email')?.touched) {
+            <div class="text-danger small">Podaj poprawny e-mail.</div>
+          }
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Telefon *</label>
+          <input class="form-control" formControlName="phone" />
+          @if (form.get('phone')?.invalid && form.get('phone')?.touched) {
+            <div class="text-danger small">Wymagane.</div>
+          }
+        </div>
+        <fieldset class="border rounded p-3 mb-3">
+          <legend class="float-none w-auto fs-6 px-2">Adres dostawy</legend>
+          <div class="mb-2">
+            <label class="form-label">Ulica *</label>
+            <input class="form-control" formControlName="street" />
+            @if (form.get('street')?.invalid && form.get('street')?.touched) {
+              <div class="text-danger small">Wymagane.</div>
+            }
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <label class="form-label">Nr budynku *</label>
+              <input class="form-control" formControlName="buildingNumber" />
+              @if (form.get('buildingNumber')?.invalid && form.get('buildingNumber')?.touched) {
+                <div class="text-danger small">Wymagane.</div>
+              }
+            </div>
+            <div class="col">
+              <label class="form-label">Nr lokalu</label>
+              <input class="form-control" formControlName="apartmentNumber" />
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <label class="form-label">Kod pocztowy *</label>
+              <input class="form-control" formControlName="postalCode" />
+              @if (form.get('postalCode')?.invalid && form.get('postalCode')?.touched) {
+                <div class="text-danger small">Wymagane.</div>
+              }
+            </div>
+            <div class="col">
+              <label class="form-label">Miasto *</label>
+              <input class="form-control" formControlName="city" />
+              @if (form.get('city')?.invalid && form.get('city')?.touched) {
+                <div class="text-danger small">Wymagane.</div>
+              }
+            </div>
+          </div>
+        </fieldset>
+        <div class="mb-4">
+          <label class="form-label">Metoda płatności *</label>
+          <select class="form-select" formControlName="paymentMethod">
+            <option value="">— wybierz —</option>
+            <option value="Karta">Karta</option>
+            <option value="Gotówka">Gotówka</option>
+            <option value="BLIK">BLIK</option>
+          </select>
+          @if (form.get('paymentMethod')?.invalid && form.get('paymentMethod')?.touched) {
+            <div class="text-danger small">Wymagane.</div>
+          }
+        </div>
+        <button type="submit" class="btn btn-success w-100 py-2"
+          [disabled]="form.invalid || cart.itemCount() === 0">
+          Złóż zamówienie
+        </button>
+      </form>
+    </div>
+
+    <div class="col-md-5 mt-4 mt-md-0">
+      <div class="card">
+        <div class="card-header"><strong>Podsumowanie zamówienia</strong></div>
+        <div class="card-body">
+          <div class="text-muted small mb-2">{{ restaurantName() }}</div>
+          @for (item of cart.cartItems(); track item.productId) {
+            <div class="d-flex justify-content-between small mb-1">
+              <span>{{ item.name }} × {{ item.quantity }}</span>
+              <span>{{ item.price * item.quantity | currency:'PLN' }}</span>
+            </div>
+          }
+          <hr>
+          <div class="d-flex justify-content-between">
+            <span>Dostawa</span><span>{{ DELIVERY_FEE | currency:'PLN' }}</span>
+          </div>
+          <div class="d-flex justify-content-between fs-5 mt-1">
+            <strong>Razem</strong><strong>{{ total() | currency:'PLN' }}</strong>
+          </div>
+          <a routerLink="/cart" class="btn btn-outline-secondary btn-sm w-100 mt-3">← Wróć do koszyka</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

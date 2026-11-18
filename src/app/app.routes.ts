@@ -5,40 +5,18 @@ import { RestaurantMenu } from './components/restaurant-menu/restaurant-menu';
 import { authGuard, adminGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'restaurants',
-    pathMatch: 'full'
-  },
-  {
-    path: 'restaurants',
-    component: RestList,
-  },
-  {
-    path: 'restaurant/:id',
-    component: RestaurantsDetails
-  },
-  {
-    path: 'restaurant/:id/menu',
-    component: RestaurantMenu,
-  },
-  {
-    path: 'restaurant/:id/menu/product/:productId',
-    component: RestaurantMenu,
-  },
-  {
-    path: 'login',
-    loadComponent: () => import('./auth/login/login').then(m => m.LoginComponent)
-  },
-  {
-    path: 'register',
-    loadComponent: () => import('./auth/register/register').then(m => m.RegisterComponent)
-  },
-  {
-    path: 'profile',
-    loadComponent: () => import('./auth/profile/profile').then(m => m.ProfileComponent),
-    canActivate: [authGuard]
-  },
+  { path: '', redirectTo: 'restaurants', pathMatch: 'full' },
+  { path: 'restaurants', component: RestList },
+  { path: 'restaurant/:id', component: RestaurantsDetails },
+  { path: 'restaurant/:id/menu', component: RestaurantMenu },
+  { path: 'restaurant/:id/menu/product/:productId', component: RestaurantMenu },
+  { path: 'login', loadComponent: () => import('./auth/login/login').then(m => m.LoginComponent) },
+  { path: 'register', loadComponent: () => import('./auth/register/register').then(m => m.RegisterComponent) },
+  { path: 'profile', loadComponent: () => import('./auth/profile/profile').then(m => m.ProfileComponent), canActivate: [authGuard] },
+  { path: 'cart', loadComponent: () => import('./cart/cart').then(m => m.CartComponent) },
+  { path: 'checkout', loadComponent: () => import('./checkout/checkout').then(m => m.CheckoutComponent), canActivate: [authGuard] },
+  { path: 'orders', loadComponent: () => import('./orders/order-list/order-list').then(m => m.OrderListComponent), canActivate: [authGuard] },
+  { path: 'orders/:id', loadComponent: () => import('./orders/order-detail/order-detail').then(m => m.OrderDetailComponent), canActivate: [authGuard] },
   {
     path: 'admin',
     canActivate: [adminGuard],
@@ -54,6 +32,7 @@ export const routes: Routes = [
       { path: 'categories/edit/:id', loadComponent: () => import('./admin/admin-category-form/admin-category-form').then(m => m.AdminCategoryFormComponent) },
       { path: 'users', loadComponent: () => import('./admin/admin-user-list/admin-user-list').then(m => m.AdminUserListComponent) },
       { path: 'users/new', loadComponent: () => import('./admin/admin-user-form/admin-user-form').then(m => m.AdminUserFormComponent) },
+      { path: 'orders', loadComponent: () => import('./admin/admin-order-list/admin-order-list').then(m => m.AdminOrderListComponent) },
     ]
   }
 ];

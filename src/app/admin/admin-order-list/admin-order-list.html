@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Zamówienia</h2>
+  <div class="mb-3">
+    <select class="form-select w-auto" [ngModel]="statusFilter()" (ngModelChange)="statusFilter.set($event)">
+      <option value="">Wszystkie statusy</option>
+      @for (s of statuses; track s) {
+        <option [value]="s">{{ s }}</option>
+      }
+    </select>
+  </div>
+  @if (filtered().length === 0) {
+    <div class="alert alert-info">Brak zamówień.</div>
+  } @else {
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Nr</th>
+          <th>Restauracja</th>
+          <th>Użytkownik</th>
+          <th>Data</th>
+          <th>Kwota</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (order of filtered(); track order.id) {
+          <tr>
+            <td class="text-muted small">{{ order.id }}</td>
+            <td>{{ order.restaurantName }}</td>
+            <td class="small">{{ order.userId }}</td>
+            <td>{{ order.createdAt | date:'dd.MM.yyyy HH:mm' }}</td>
+            <td>{{ order.total | currency:'PLN' }}</td>
+            <td><span class="badge" [class]="statusClass(order.status)">{{ order.status }}</span></td>
+            <td><a [routerLink]="['/orders', order.id]" class="btn btn-sm btn-outline-primary">Szczegóły</a></td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

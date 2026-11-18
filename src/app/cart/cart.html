@@ -1,0 +1,64 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Koszyk</h2>
+
+  @if (cart.itemCount() === 0) {
+    <div class="alert alert-info">
+      Koszyk jest pusty. <a routerLink="/restaurants">Wróć do restauracji</a>
+    </div>
+  } @else {
+    <div class="mb-2 text-muted">Restauracja: <strong>{{ restaurantName() }}</strong></div>
+    <table class="table table-bordered align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Produkt</th>
+          <th style="width:160px">Ilość</th>
+          <th>Cena jedn.</th>
+          <th>Razem</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of cart.cartItems(); track item.productId) {
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>
+              <div class="input-group input-group-sm">
+                <button class="btn btn-outline-secondary" type="button" (click)="decrement(item.productId, item.quantity)">−</button>
+                <input type="number" class="form-control text-center" [value]="item.quantity" min="1"
+                  (change)="updateQty(item.productId, $event)" style="max-width:60px" />
+                <button class="btn btn-outline-secondary" type="button" (click)="increment(item.productId, item.quantity)">+</button>
+              </div>
+            </td>
+            <td>{{ item.price | currency:'PLN' }}</td>
+            <td>{{ item.price * item.quantity | currency:'PLN' }}</td>
+            <td>
+              <button class="btn btn-sm btn-danger" (click)="cart.removeItem(item.productId)">Usuń</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+
+    <div class="card ms-auto" style="max-width:320px">
+      <div class="card-body">
+        <div class="d-flex justify-content-between mb-1">
+          <span>Suma zamówienia</span>
+          <strong>{{ cart.subtotal() | currency:'PLN' }}</strong>
+        </div>
+        <div class="d-flex justify-content-between mb-2">
+          <span>Koszt dostawy</span>
+          <strong>{{ DELIVERY_FEE | currency:'PLN' }}</strong>
+        </div>
+        <hr class="my-2">
+        <div class="d-flex justify-content-between fs-5">
+          <span>Do zapłaty</span>
+          <strong>{{ total() | currency:'PLN' }}</strong>
+        </div>
+        <div class="d-flex gap-2 mt-3">
+          <a routerLink="/checkout" class="btn btn-success flex-grow-1">Zamów</a>
+          <button class="btn btn-outline-danger btn-sm" (click)="clearCart()">Wyczyść</button>
+        </div>
+      </div>
+    </div>
+  }
+</div>

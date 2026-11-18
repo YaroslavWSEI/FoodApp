@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <h2 class="mb-4">{{ isAdmin() ? 'Wszystkie zamówienia' : 'Moje zamówienia' }}</h2>
+
+  @if (orders().length === 0) {
+    <div class="alert alert-info">Brak zamówień.</div>
+  } @else {
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Nr zamówienia</th>
+          <th>Restauracja</th>
+          @if (isAdmin()) { <th>Użytkownik</th> }
+          <th>Data</th>
+          <th>Kwota</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (order of orders(); track order.id) {
+          <tr>
+            <td class="text-muted small">{{ order.id }}</td>
+            <td>{{ order.restaurantName }}</td>
+            @if (isAdmin()) { <td>{{ order.userId }}</td> }
+            <td>{{ order.createdAt | date:'dd.MM.yyyy HH:mm' }}</td>
+            <td>{{ order.total | currency:'PLN' }}</td>
+            <td>
+              <span class="badge" [class]="statusClass(order.status)">{{ order.status }}</span>
+            </td>
+            <td>
+              <a [routerLink]="['/orders', order.id]" class="btn btn-sm btn-outline-primary">Szczegóły</a>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

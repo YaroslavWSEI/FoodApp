@@ -6,10 +6,22 @@
       @if (auth.isAdmin()) {
         <li class="nav-item"><a class="nav-link" routerLink="/admin/restaurants">Panel Admina</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/admin/users">Użytkownicy</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/admin/orders">Zamówienia</a></li>
       }
     </ul>
     <ul class="navbar-nav ms-auto align-items-center">
+      <li class="nav-item">
+        <a class="nav-link position-relative" routerLink="/cart">
+          🛒
+          @if (cart.itemCount() > 0) {
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              {{ cart.itemCount() }}
+            </span>
+          }
+        </a>
+      </li>
       @if (auth.isLoggedIn()) {
+        <li class="nav-item"><a class="nav-link" routerLink="/orders">Moje zamówienia</a></li>
         <li class="nav-item">
           <span class="navbar-text me-3 text-dark">
             {{ auth.currentUser()?.name }}
