@@ -42,6 +42,12 @@ export class OrderService {
     return this.orders().find(o => o.id === id);
   }
 
+  placeOrderFromApi(apiOrder: any): Order {
+    this.orders.update(o => [apiOrder as Order, ...o]);
+    this.save();
+    return apiOrder as Order;
+  }
+
   updateStatus(id: string, status: OrderStatus) {
     this.orders.update(orders =>
       orders.map(o => o.id === id ? { ...o, status } : o)

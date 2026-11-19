@@ -85,8 +85,12 @@
           }
         </div>
         <button type="submit" class="btn btn-success w-100 py-2"
-          [disabled]="form.invalid || cart.itemCount() === 0">
-          Złóż zamówienie
+          [disabled]="form.invalid || cart.itemCount() === 0 || submitting()">
+          @if (submitting()) {
+            <span class="spinner-border spinner-border-sm me-2"></span>Wysyłanie...
+          } @else {
+            Złóż zamówienie
+          }
         </button>
       </form>
     </div>

@@ -1,35 +1,19 @@
-<p>Restaurant id: {{ id() }}</p>
+<div class="container mt-4">
+  <app-state-view [status]="stateStatus" (retry)="load()" />
 
-@if (restaurant(); as rest) {
-  <section class="card">
-    <img class="restaurant-image" [src]="rest.imageUrl" [alt]="rest.name" />
-    
-    <div class="name">
-      <a [routerLink]="['/restaurant', rest.id]">{{ rest.name }}</a>
-    </div>
-    
-    <div class="description">{{ rest.description }}</div>
-    <div class="rating">Rating: {{ rest.rating }}</div>
-    <div class="cuisine">Cuisine: {{ rest.cuisine }}</div>
-    
-    <div class="delivery-time">
-      Delivery Time: {{ rest.deliveryTimeMin }} - {{ rest.deliveryTimeMax }} min
-    </div>
-    
-    <div class="delivery-fee">
-      Delivery Fee: {{ rest.deliveryFee | currency:'PLN' }}
-    </div>
-    
-    <div class="status">
-      <span [class]="'status-' + (rest.isActive ? 'open' : 'closed')">
-        {{ rest.isActive ? 'Otwarte' : 'Zamknięte' }}
-      </span>
-    </div>
-    
-    <button class="order-button" [disabled]="!rest.isActive">Order Now</button>
-    
-    <app-restaurant-menu [id]="rest.id" />
-  </section>
-} @else {
-  <p>Nie znaleziono restauracji o podanym ID...</p>
-}
+  @if (restaurant; as rest) {
+    <section class="card p-3">
+      <img class="restaurant-image mb-3" [src]="rest.imageUrl" [alt]="rest.name" style="max-height:220px;object-fit:cover;border-radius:8px" />
+      <h2>{{ rest.name }}</h2>
+      <p>{{ rest.description }}</p>
+      <div class="d-flex flex-wrap gap-3 text-muted small mb-3">
+        <span>⭐ {{ rest.rating }}</span>
+        <span>🕐 {{ rest.deliveryTimeMin }}–{{ rest.deliveryTimeMax }} min</span>
+        <span>🚚 {{ rest.deliveryFee | currency:'PLN' }}</span>
+        <span>Kuchnia: {{ rest.cuisine }}</span>
+        <span [class]="rest.isActive ? 'text-success' : 'text-danger'">{{ rest.isActive ? 'Otwarte' : 'Zamknięte' }}</span>
+      </div>
+      <app-restaurant-menu [id]="rest.id" />
+    </section>
+  }
+</div>

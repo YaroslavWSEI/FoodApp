@@ -1,11 +1,15 @@
-<div class="menu-container">
-  <h2>Menu restauracji</h2>
+<div class="menu-container mt-3">
+  <h3>Menu</h3>
+  <app-state-view
+    [status]="stateStatus"
+    [isEmpty]="isEmpty"
+    emptyMessage="Brak produktów w menu."
+    (retry)="load()"
+  />
   @for (cat of menuCategories(); track cat.category) {
     <section class="menu-section">
-      <h3 style="border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 20px;">
-        {{ cat.category }}
-      </h3>
-      <div class="product-grid" style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+      <h4 class="border-bottom pb-1 mt-3">{{ cat.category }}</h4>
+      <div class="product-grid d-flex flex-column gap-3 mt-3">
         @for (prod of cat.products; track prod.id) {
           <app-restaurant-menu-product [product]="prod" />
         }

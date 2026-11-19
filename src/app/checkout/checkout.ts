@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule, CurrencyPipe } from '@angular/common';
@@ -6,6 +6,7 @@ import { CartService } from '../services/cart.service';
 import { OrderService } from '../services/order.service';
 import { AuthService } from '../services/auth.service';
 import { RestaurantsService } from '../services/restaurants';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-checkout',
@@ -19,9 +20,12 @@ export class CheckoutComponent implements OnInit {
   private orderService = inject(OrderService);
   private auth = inject(AuthService);
   private restaurantsService = inject(RestaurantsService);
+  private apiService = inject(ApiService);
   private router = inject(Router);
 
   DELIVERY_FEE = 5.99;
+  submitting = signal(false);
+  submitError = signal('');
 
   total = computed(() => this.cart.subtotal() + this.DELIVERY_FEE);
 
@@ -51,9 +55,12 @@ export class CheckoutComponent implements OnInit {
     }
     const user = this.auth.currentUser();
     if (user) {
-      this.form.patchValue({ email: user.email });
       const nameParts = user.name.split(' ');
-      this.form.patchValue({ firstName: nameParts[0], lastName: nameParts.slice(1).join(' ') || '' });
+      this.form.patchValue({
+        email: user.email,
+        firstName: nameParts[0],
+        lastName: nameParts.slice(1).join(' ') || ''
+      });
       if (user.role === 'customer') {
         this.form.patchValue({
           street: user.deliveryAddress.street,
@@ -72,7 +79,7 @@ export class CheckoutComponent implements OnInit {
     const user = this.auth.currentUser();
     const rid = this.cart.currentRestaurantId()!;
 
-    const order = this.orderService.placeOrder({
+    const payload = {
       userId: user?.id ?? 'guest',
       restaurantId: rid,
       restaurantName: this.restaurantName(),
@@ -92,9 +99,24 @@ export class CheckoutComponent implements OnInit {
       subtotal: this.cart.subtotal(),
       deliveryFee: this.DELIVERY_FEE,
       total: this.total()
-    });
+    };
 
-    this.cart.clear();
-    this.router.navigate(['/orders', order.id]);
+    this.submitting.set(true);
+    this.submitError.set('');
+
+    this.apiService.postOrder(payload).subscribe({
+      next: (apiOrder: any) => {
+        const localOrder = this.orderService.placeOrderFromApi(apiOrder);
+        this.cart.clear();
+        this.submitting.set(false);
+        this.router.navigate(['/orders', localOrder.id]);
+      },
+      error: () => {
+        const localOrder = this.orderService.placeOrder(payload);
+        this.cart.clear();
+        this.submitting.set(false);
+        this.router.navigate(['/orders', localOrder.id]);
+      }
+    });
   }
 }

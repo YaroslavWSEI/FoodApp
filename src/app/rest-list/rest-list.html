@@ -1,35 +1,40 @@
-<h2>Restaurant List</h2>
+<div class="container mt-4">
+  <h2 class="mb-3">Restauracje</h2>
 
-<section class="filters">
-  <input type="text" placeholder="Search..." [value]="searchTerm()" (input)="onSearch($event)"/>
-  
-  <select [value]="selectedCuisine()" (change)="onCuisineChange($event)">
-    @for (cuisine of cuisines(); track cuisine) {
-      <option [value]="cuisine">
-        {{ cuisine === 'All' ? 'Wszystkie' : cuisine }}
-      </option>
-    }
-  </select>
+  <section class="filters mb-3 d-flex flex-wrap gap-2 align-items-center">
+    <input type="text" class="form-control w-auto" placeholder="Szukaj..." [value]="searchTerm()" (input)="onSearch($event)" />
 
-  <label>
-    <input type="checkbox" [checked]="onlyActive()" (change)="onStatusChange($event)"/> Czynne teraz
-  </label>
+    <select class="form-select w-auto" [value]="selectedCuisine()" (change)="onCuisineChange($event)">
+      @for (cuisine of cuisines(); track cuisine) {
+        <option [value]="cuisine">{{ cuisine === 'All' ? 'Wszystkie' : cuisine }}</option>
+      }
+    </select>
 
-  <select [value]="selectedSort()" (change)="onSortChange($event)">
-    <option value="rating">Rating</option>
-    <option value="deliveryTime">Czas dostawy</option>
-    <option value="deliveryFee">Koszt dostawy</option>
-  </select>
-  
-  <button (click)="resetFilters()">Reset Filters</button>
+    <label class="d-flex align-items-center gap-1">
+      <input type="checkbox" [checked]="onlyActive()" (change)="onStatusChange($event)" /> Czynne teraz
+    </label>
 
-</section>
-<section class="list">
+    <select class="form-select w-auto" [value]="selectedSort()" (change)="onSortChange($event)">
+      <option value="rating">Rating</option>
+      <option value="deliveryTime">Czas dostawy</option>
+      <option value="deliveryFee">Koszt dostawy</option>
+    </select>
 
-  @for (restaurant of filteredRestaurants(); track restaurant.id) {
-    <app-rest-card [restaurant]="restaurant"></app-rest-card>
+    <button class="btn btn-outline-secondary btn-sm" (click)="resetFilters()">Reset</button>
+  </section>
+
+  <app-state-view
+    [status]="stateStatus"
+    [isEmpty]="filteredRestaurants().length === 0 && state().status === 'success'"
+    emptyMessage="Nie znaleziono restauracji."
+    (retry)="load()"
+  />
+
+  @if (state().status === 'success') {
+    <section class="list">
+      @for (restaurant of filteredRestaurants(); track restaurant.id) {
+        <app-rest-card [restaurant]="restaurant" />
+      }
+    </section>
   }
-  @empty {
-    <div class="no-restaurants">Nie znaleziono restauracji.</div>
-  }
-</section>
+</div>

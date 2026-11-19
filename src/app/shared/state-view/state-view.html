@@ -1,0 +1,15 @@
+@if (status() === 'loading') {
+  <div class="d-flex align-items-center gap-2 my-4 text-muted">
+    <div class="spinner-border spinner-border-sm"></div>
+    <span>Ładowanie...</span>
+  </div>
+}
+@if (status() === 'error') {
+  <div class="alert alert-danger d-flex align-items-center gap-3 my-4">
+    <span>Unable to load data.</span>
+    <button class="btn btn-sm btn-outline-danger" (click)="retry.emit()">Retry</button>
+  </div>
+}
+@if (status() === 'success' && isEmpty()) {
+  <div class="alert alert-secondary my-4">{{ emptyMessage() }}</div>
+}
